@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR SAME -->
+<div class="navbar">
+    <div class="logo">MoviesReco</div>
+
+    <div class="nav-buttons">
+        <button onclick="goHome()">Home</button>
+        <button onclick="goWatchlist()">Watchlist</button>
+        <button onclick="goHistory()">History</button>
+    </div>
+</div>
+
+<h1 style="text-align:center; margin-top:20px;">History</h1>
+
+<div id="moviesContainer" class="movies"></div>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    let history = JSON.parse(localStorage.getItem("history")) || [];
+
+    const container = document.getElementById("moviesContainer");
+
+    if (!container) return;
+
+    history.forEach(movie => {
+
+        const rating = movie.avg_rating ? (movie.avg_rating / 1).toFixed(1) : "N/A";
+
+        const div = document.createElement("div");
+        div.className = "movie-card";
+
+        div.innerHTML = `
+            <h3>${movie.title}</h3>
+            <p>${movie.genres}</p>
+            <p class="rating">⭐ ${rating}/5</p>
+        `;
+
+        container.appendChild(div);
+    });
+
+});
+// NAVIGATION FUNCTIONS
+function goHome() {
+    window.location.href = "/";
+}
+
+function goWatchlist() {
+    window.location.href = "/watchlist";
+}
+
+function goHistory() {
+    window.location.href = "/history";
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MoviesReco</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">MoviesReco</div>
+
+    <div class="nav-buttons">
+        <button onclick="goHome()">Home</button>
+        <button onclick="goWatchlist()">Watchlist</button>
+        <button onclick="goHistory()">History</button>
+    </div>
+</div>
+<!-- SEARCH -->
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search movies or genres...">
+    <button onclick="searchMovies()">Search</button>
+</div>
+
+<!-- GENRES -->
+<div class="genres">
+    <button onclick="searchGenre('romance')">Romance</button>
+    <button onclick="searchGenre('thriller')">Thriller</button>
+    <button onclick="searchGenre('action')">Action</button>
+    <button onclick="searchGenre('horror')">Horror</button>
+    <button onclick="searchGenre('drama')">Drama</button>
+</div>
+
+<!-- MOVIES -->
+<div id="moviesContainer" class="movies"></div>
+
+<div class="pagination">
+    <button id="prevBtn" onclick="prevPage()" style="display:none;">
+        ← Previous
+    </button>
+
+    <button id="nextBtn" onclick="nextPage()" style="display:none;">
+        Next →
+    </button>
+</div>
+<script src="/static/script.js"></script>
+
+</body>
+</html>
