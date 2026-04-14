@@ -3,6 +3,10 @@ from app.recommender import recommend_movies
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 app = FastAPI()
+import os
+
+if not os.path.exists("models"):
+    import app.train
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
